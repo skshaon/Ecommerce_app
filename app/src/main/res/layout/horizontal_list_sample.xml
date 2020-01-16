@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="10dp">
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/cardview_id"
+        android:background="#B9B9B9"
+
+        >
+
+        <LinearLayout
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:orientation="vertical"
+            >
+
+
+
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/slider2"
+            android:id="@+id/circularimage_id"
+           android:scaleType="centerCrop"
+            android:layout_gravity="center_horizontal"
+            app:civ_border_width="2dp"
+            app:civ_border_color="#FF000000"
+            >
+
+
+        </de.hdodenhof.circleimageview.CircleImageView>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/itemtext_id"
+            android:layout_gravity="center_horizontal"
+            android:padding="10dp"
+            android:text="profile"
+            android:textSize="8sp"
+            android:textColor="#43e"
+            android:textStyle="bold"
+            />
+
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+
+
+<!--    <ImageView-->
+<!--        android:id="@+id/itemimage_id"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="center_horizontal"-->
+<!--        android:src="@mipmap/ic_launcher" />-->
+
+
+</LinearLayout>

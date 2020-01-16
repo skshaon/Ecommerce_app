@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/home_nav_id"
+        android:enabled="true"
+        android:icon="@drawable/homenav"
+        android:title="Dashboard"
+        app:showAsAction="ifRoom"
+        />
+
+    <item
+        android:id="@+id/favourate_nav_id"
+        android:enabled="true"
+        android:icon="@drawable/favouritenav"
+        android:title="Favourite"
+        app:showAsAction="ifRoom"
+        />
+    <item
+        android:id="@+id/recent_nav_id"
+        android:enabled="true"
+        android:icon="@drawable/recentnav"
+        android:title="Recent"
+        app:showAsAction="ifRoom"
+        />
+
+
+    <item
+        android:id="@+id/dashboard_nav_id"
+        android:enabled="true"
+        android:icon="@drawable/dashboardnav"
+        android:title="Dashboard"
+        app:showAsAction="ifRoom"
+        />
+
+</menu>
