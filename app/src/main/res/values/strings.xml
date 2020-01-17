@@ -2,6 +2,10 @@
     <string name="app_name">AutoImageSlider</string>
 
 
+    <string name="toggle_open">Open</string>
+    <string name="toggle_close">Close</string>
+
+
     <string-array name="title">
 
         <item>Profile Name</item>

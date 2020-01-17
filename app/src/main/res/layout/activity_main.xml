@@ -4,104 +4,194 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+<!--    <ScrollView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_weight="9">-->
 
 
-        <LinearLayout
-            android:id="@+id/slider_recycler_id"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                app:cardCornerRadius="6dp">
-
-                <com.smarteist.autoimageslider.SliderView
-                    android:id="@+id/imageSlider_id"
-                    android:layout_width="match_parent"
-                    android:layout_height="150dp"
-                    app:sliderAnimationDuration="600"
-                    app:sliderAutoCycleDirection="back_and_forth"
-                    app:sliderAutoCycleEnabled="true"
-                    app:sliderCircularHandlerEnabled="true"
-                    app:sliderIndicatorAnimationDuration="600"
-                    app:sliderIndicatorGravity="center_horizontal|bottom"
-                    app:sliderIndicatorMargin="15dp"
-                    app:sliderIndicatorOrientation="horizontal"
-                    app:sliderIndicatorPadding="3dp"
-                    app:sliderIndicatorRadius="2dp"
-                    app:sliderIndicatorSelectedColor="#5A5A5A"
-                    app:sliderIndicatorUnselectedColor="#FFF"
-                    app:sliderScrollTimeInSec="1"
-                    app:sliderStartAutoCycle="true" />
-
-            </androidx.cardview.widget.CardView>
+<!--    <androidx.drawerlayout.widget.DrawerLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:id="@+id/drawer_layout"-->
+<!--        android:fitsSystemWindows="true"-->
+<!--        tools:openDrawer="start"-->
+<!--        >-->
 
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerviewid"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
 
 
-            </androidx.recyclerview.widget.RecyclerView>
-
-        </LinearLayout>
 
 
-        <!--    <LinearLayout-->
-        <!--        android:layout_width="match_parent"-->
-        <!--        android:layout_height="wrap_content"-->
-        <!--        android:id="@+id/tab_viewpager_id"-->
-        <!--        android:orientation="vertical">-->
+<!--    </androidx.drawerlayout.widget.DrawerLayout>-->
 
 
-        <com.google.android.material.appbar.AppBarLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:theme="@style/Theme.MaterialComponents.Light.DarkActionBar">
-
-            <com.google.android.material.tabs.TabLayout
-
-                android:id="@+id/tablayout_id"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:tabGravity="fill"
-
-                app:tabIndicatorColor="#000"
-                app:tabIndicatorHeight="2dp"
-                app:tabMode="fixed" />
-
-        </com.google.android.material.appbar.AppBarLayout>
-
-
-        <androidx.viewpager.widget.ViewPager
-            android:id="@+id/viewpagerz_id"
-            android:layout_width="match_parent"
-            android:layout_height="250dp"
-            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior" />
-
-
-        <!--    </LinearLayout>-->
-
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_nevigation_id"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="#C2BDBD"
-        app:itemIconTint="#3D3F3D"
-        app:itemTextColor="#000"
-        app:menu="@menu/bottom_nevigation_menu_item"
+        android:layout_height="match_parent"
+        android:id="@+id/fragment_container_id"
+        android:visibility="gone"
         />
 
-</RelativeLayout>
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <RelativeLayout
+                android:id="@+id/firstRelativeId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardViewId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    app:cardCornerRadius="6dp">
+
+                    <com.smarteist.autoimageslider.SliderView
+                        android:id="@+id/imageSlider_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        app:sliderAnimationDuration="600"
+                        app:sliderAutoCycleDirection="back_and_forth"
+                        app:sliderAutoCycleEnabled="true"
+                        app:sliderCircularHandlerEnabled="true"
+                        app:sliderIndicatorAnimationDuration="600"
+                        app:sliderIndicatorGravity="center_horizontal|bottom"
+                        app:sliderIndicatorMargin="15dp"
+                        app:sliderIndicatorOrientation="horizontal"
+                        app:sliderIndicatorPadding="3dp"
+                        app:sliderIndicatorRadius="2dp"
+                        app:sliderIndicatorSelectedColor="#5A5A5A"
+                        app:sliderIndicatorUnselectedColor="#FFF"
+                        app:sliderScrollTimeInSec="1"
+                        app:sliderStartAutoCycle="true" />
+
+                </androidx.cardview.widget.CardView>
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerviewid"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/cardViewId"
+                    android:orientation="vertical">
+
+
+                </androidx.recyclerview.widget.RecyclerView>
+
+            </RelativeLayout>
+
+
+            <!--    <LinearLayout-->
+            <!--        android:layout_width="match_parent"-->
+            <!--        android:layout_height="wrap_content"-->
+            <!--        android:id="@+id/tab_viewpager_id"-->
+            <!--        android:orientation="vertical">-->
+
+            <RelativeLayout
+                android:id="@+id/secondRelativeId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/firstRelativeId">
+
+                <com.google.android.material.appbar.AppBarLayout
+                    android:id="@+id/appbarId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/Theme.MaterialComponents.Light.DarkActionBar">
+
+                    <com.google.android.material.tabs.TabLayout
+
+                        android:id="@+id/tablayout_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:tabGravity="fill"
+
+                        app:tabIndicatorColor="#000"
+                        app:tabIndicatorHeight="2dp"
+                        app:tabMode="fixed" />
+
+                </com.google.android.material.appbar.AppBarLayout>
+
+
+                <androidx.viewpager.widget.ViewPager
+                    android:id="@+id/viewpagerz_id"
+                    android:layout_width="match_parent"
+                    android:layout_below="@id/appbarId"
+                    android:layout_height="250dp" />
+
+
+
+
+            </RelativeLayout>
+
+
+
+            <!--    </LinearLayout>-->
+
+
+        </RelativeLayout>
+
+
+<!--    </ScrollView>-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/secondRelativeId"
+            android:layout_alignParentBottom="true">
+
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bottom_nevigation_id"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentBottom="true"
+                android:background="#C2BDBD"
+                app:itemIconTint="#3D3F3D"
+                app:itemTextColor="#000"
+                app:menu="@menu/bottom_nevigation_menu_item"
+                app:layout_behavior="@string/hide_bottom_view_on_scroll_behavior"
+                />
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+
+
+
+
+
+<!--<RelativeLayout-->
+<!--    android:layout_width="wrap_content"-->
+<!--    android:layout_height="wrap_content">-->
+
+<!--    <com.google.android.material.navigation.NavigationView-->
+<!--        android:id="@+id/nav_view"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_gravity="start"-->
+<!--     -->
+
+<!--        app:headerLayout="@layout/nav_header_main"-->
+<!--        app:menu="@menu/activity_main_drawer" >-->
+
+
+<!--    </com.google.android.material.navigation.NavigationView>-->
+
+
+<!--</RelativeLayout>-->
+
 </LinearLayout>

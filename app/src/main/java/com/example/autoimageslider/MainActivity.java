@@ -1,17 +1,24 @@
 package com.example.autoimageslider;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
 import com.smarteist.autoimageslider.IndicatorAnimations;
 import com.smarteist.autoimageslider.IndicatorView.draw.controller.DrawController;
@@ -19,6 +26,12 @@ import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
 
 public class MainActivity extends AppCompatActivity {
+//
+//    /////navigation bar with toggle button
+//    DrawerLayout drawer;
+//    NavigationView navigationView;
+//    ActionBarDrawerToggle toggle;
+
 
     ////for the tablayout with fragment
     private TabLayout tabLayout;
@@ -32,6 +45,8 @@ public class MainActivity extends AppCompatActivity {
 
     ////bottomnevigation
     private BottomNavigationView bottomNavigationView;
+
+    FrameLayout frameLayout;
 
     HorizontalListAdapter myAdapter;
     int [] image = {
@@ -54,6 +69,25 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        ////all task of naviigationbar
+//
+//
+//        final DrawerLayout drawer = findViewById(R.id.drawer_layout);
+//        NavigationView navigationView = findViewById(R.id.nav_view);
+//        toggle= new ActionBarDrawerToggle(this,drawer,R.string.toggle_open,R.string.toggle_close);
+//        drawer.addDrawerListener(toggle);
+//        toggle.syncState();
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
+
+
+
+        frameLayout=findViewById(R.id.fragment_container_id);
+        frameLayout.setVisibility(View.GONE);
+
 
 
         sliderView=findViewById(R.id.imageSlider_id);
@@ -80,6 +114,7 @@ public class MainActivity extends AppCompatActivity {
         sliderView.setScrollTimeInSec(4);
 
 
+
         title= getResources().getStringArray(R.array.title);
 
 
@@ -90,25 +125,31 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
 
+                Fragment selectFragment= null;
+
+
                 switch (menuItem.getItemId())
 
                 {
                     case R.id.dashboard_nav_id:
-                        Toast.makeText(getApplicationContext(),"selected Dashboard",Toast.LENGTH_SHORT).show();
+                        Intent intent= new Intent(getApplicationContext(),BottomNavDashFragment.class);
+                        startActivity(intent);
                         break;
 
                     case R.id.favourate_nav_id:
-                        Toast.makeText(getApplicationContext(),"selected Favourite",Toast.LENGTH_SHORT).show();
+                        selectFragment = new BottomNavFavFragment();
                         break;
 
                     case R.id.recent_nav_id:
-                        Toast.makeText(getApplicationContext(),"selected Recent",Toast.LENGTH_SHORT).show();
+                       selectFragment = new BottomNavRecentFragment();
                         break;
 
                     case R.id.home_nav_id:
-                        Toast.makeText(getApplicationContext(),"selected Home",Toast.LENGTH_SHORT).show();
+                        selectFragment = new BottmNavHomeFragment();
                         break;
                 }
+
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_id,selectFragment).commit();
 
                 return true;
             }
@@ -143,5 +184,18 @@ public class MainActivity extends AppCompatActivity {
         viewPager.setAdapter(viewPagerAdapter);
 
     }
+
+
+    ///////navigation bar item select and toggole button method
+//
+//    @Override
+//    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+//
+//        if (toggle.onOptionsItemSelected(item))
+//        {
+//            return true;
+//        }
+//        return super.onOptionsItemSelected(item);
+//    }
 
 }
